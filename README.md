@@ -65,6 +65,7 @@
 - **Node.js** 18.0+ 
 - **Python** 3.8+
 - **Git** (for submodule management)
+- **Android Studio** (for AAC tablet APK building)
 
 ### Quick Start
 
@@ -86,9 +87,36 @@ pip install -r requirements.txt
 cp .env.example .env
 # Edit .env with your API keys and configuration
 
-# Start the ecosystem
+# Start the development server
 npm run dev
 ```
+
+### Building Standalone Executables
+
+```bash
+# Package for AAC devices (both Windows PC and Android tablets)
+node scripts/package-aac.js
+
+# Build just Windows PC admin interface
+npm run build:win
+
+# Build just Android tablet student interface
+npm run build:android
+```
+
+### For AAC Device Users
+
+The system is designed for two primary interfaces:
+
+1. **Student Interface (AAC Tablet)**
+   - **Install**: Sideload APK on Android tablet
+   - **Features**: Symbol-based communication, large buttons, offline functionality
+   - **Mode**: "Echo Mode" - Privacy-by-design student interaction space
+
+2. **Parent/Teacher Interface (Windows PC)**
+   - **Install**: Run Windows executable
+   - **Features**: Goal setting, progress reports, curriculum creation
+   - **Mode**: "Studio Mode" - Create framework, review progress
 
 ### 🌐 API Endpoints
 

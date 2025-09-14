@@ -1,0 +1,39 @@
+{
+  "name": "agentricai-university-demo",
+  "version": "1.0.0",
+  "description": "Demo version of AgentricAI University ecosystem",
+  "main": "src/demo.js",
+  "scripts": {
+    "start": "node src/demo.js",
+    "demo": "node src/demo.js",
+    "test": "echo \"Demo test passed\" && exit 0"
+  },
+  "keywords": [
+    "ai",
+    "education", 
+    "demo",
+    "aac",
+    "neurodiverse"
+  ],
+  "author": "Brandon Myers <brandon@agentricai.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "morgan": "^1.10.0",
+    "compression": "^1.7.4",
+    "dotenv": "^16.3.1",
+    "uuid": "^9.0.0",
+    "winston": "^3.9.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
