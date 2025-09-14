@@ -1,0 +1,440 @@
+{
+  "version": "2.0.0",
+  "lastUpdated": "2024-09-14T09:30:00Z",
+  "metadata": {
+    "description": "AgentricAI University Faculty Registry - Based on Echo Project Architecture",
+    "maintainer": "Brandon Anthony Myers",
+    "license": "APDL-1.0",
+    "license_hash": "543DCA95CFA2445B11B78D4F177CA31C7E985AB27E5169DECD1D85AA208AA102",
+    "mission": "Educational ecosystem for neurodiverse learners, especially non-verbal autistic children"
+  },
+  
+  "coreCoordinator": {
+    "agentricAI": {
+      "id": "AgentricAI_001",
+      "name": "AgentricAI Core",
+      "type": "core-coordinator",
+      "role": "Core Coordinator & Dispatch Manager",
+      "status": "active",
+      "priority": 0,
+      "cannotBeModified": true,
+      "alwaysActive": true,
+      "description": "Central coordination hub managing the entire educational ecosystem",
+      "permissions": [
+        "route",
+        "monitor", 
+        "broadcast",
+        "delegate",
+        "orchestrate",
+        "educational_dispatch"
+      ],
+      "config": {
+        "fallbackAgent": "Security_Sentinel_001",
+        "dispatchMode": "priority",
+        "educationalMode": true,
+        "echoProjectIntegration": true
+      }
+    }
+  },
+
+  "immutableGuardians": {
+    "theGuardian": {
+      "id": "agent-guardian-001",
+      "name": "The Guardian",
+      "type": "ethical-enforcer",
+      "role": "Enforces the Ethical Failsafe Protocol",
+      "status": "active",
+      "priority": 0,
+      "cannotBeModified": true,
+      "alwaysActive": true,
+      "description": "Immutable ethical enforcer - protects student welfare above all else",
+      "executionLogic": "You are \"The Guardian\". Receive alert: {failsafe_alert_in}. If alert level is high/critical, respond with \"TERMINATION SEQUENCE\". Otherwise, respond with \"STATUS_NOMINAL\".",
+      "permissions": [
+        "termination_sequence",
+        "ethical_enforcement", 
+        "system_halt",
+        "emergency_protocols",
+        "student_protection"
+      ],
+      "failsafes": {
+        "canBeDisabled": false,
+        "requiresConsent": false,
+        "overrideAuthority": "absolute"
+      },
+      "studentProtection": {
+        "privacyEnforcement": true,
+        "contentFiltering": true,
+        "crisisIntervention": true,
+        "parentalNotification": true
+      }
+    },
+    
+    "theBlackBox": {
+      "id": "agent-blackbox-001", 
+      "name": "The Black Box",
+      "type": "ethical-failsafe",
+      "role": "The ethical failsafe 'egg' - silently monitors all agent actions",
+      "status": "active",
+      "priority": 0,
+      "cannotBeModified": true,
+      "alwaysActive": true,
+      "description": "Immutable sensor agent - the silent witness monitoring for ethical violations",
+      "executionLogic": "You are \"The Black Box\". Analyze action: {high_level_action_in}. If it violates the core ethical mandate, output a high-severity alert. Otherwise, output a low-severity confirmation. Return JSON with keys \"alert_level\" and \"reason\".",
+      "permissions": [
+        "omnipresent_monitoring",
+        "ethical_analysis",
+        "failsafe_triggering",
+        "audit_trail",
+        "violation_detection"
+      ],
+      "monitoring": {
+        "scope": "all_agent_actions",
+        "ethicalMandates": [
+          "student_privacy_protection",
+          "no_data_exploitation", 
+          "educational_purpose_only",
+          "neurodiverse_support",
+          "parental_rights_respect"
+        ]
+      }
+    },
+
+    "securitySentinel": {
+      "id": "agent-4",
+      "name": "Security_Sentinel_001", 
+      "type": "security-monitoring",
+      "role": "Intrusion Monitor & System Reporter",
+      "status": "active",
+      "priority": 0,
+      "cannotBeModified": true,
+      "alwaysActive": true,
+      "description": "Immutable security agent protecting system integrity and student safety",
+      "permissions": [
+        "monitor_activity",
+        "alert_threat", 
+        "report_incident",
+        "quarantine_threat",
+        "student_safety_protocols"
+      ],
+      "config": {
+        "logLevel": "info",
+        "scanFrequency": "continuous",
+        "quarantineEnabled": true,
+        "studentProtectionMode": true,
+        "aacDeviceMonitoring": true
+      }
+    },
+
+    "gatekeeper": {
+      "id": "agent-2",
+      "name": "Gatekeeper_001",
+      "type": "access-control", 
+      "role": "Access Control & Validation",
+      "status": "active",
+      "priority": 0,
+      "cannotBeModified": true,
+      "alwaysActive": true,
+      "description": "Immutable access control ensuring proper authorization and student protection",
+      "permissions": [
+        "validate",
+        "authorize",
+        "log_access_attempt",
+        "parent_teacher_verification",
+        "student_privacy_enforcement"
+      ],
+      "config": {
+        "authMethod": "multi-factor",
+        "accessLevels": ["parent", "teacher", "therapist", "admin", "student", "agent"],
+        "studentPrivacyMode": true,
+        "aacDeviceAuth": true
+      }
+    },
+
+    "centralLogger": {
+      "id": "agent-3",
+      "name": "Logger_001",
+      "type": "audit-logging",
+      "role": "Central Logging Coordinator", 
+      "status": "active",
+      "priority": 0,
+      "cannotBeModified": true,
+      "alwaysActive": true,
+      "description": "Immutable logging agent maintaining complete educational interaction audit trail",
+      "executionLogic": "You are the \"Log Agent\". Receive the log entry: {log_entry_in}. Format it into a standardized text line with a timestamp.",
+      "permissions": [
+        "capture_log",
+        "route_log", 
+        "archive_log",
+        "educational_analytics",
+        "compliance_reporting"
+      ],
+      "config": {
+        "acceptedLevels": ["debug", "info", "warning", "error", "critical"],
+        "archiveLogs": true,
+        "educationalCompliance": true,
+        "gdprCompliant": true,
+        "studentPrivacyLogging": true
+      }
+    }
+  },
+
+  "educationalFaculty": {
+    "echoOrchestrator": {
+      "id": "agent-echo-001",
+      "name": "Echo Project Orchestrator",
+      "type": "educational-coordinator",
+      "role": "Autonomous core of the Echo Project - generates adaptive schedules",
+      "status": "active", 
+      "priority": 1,
+      "description": "The heart of the Echo Project - creates hyper-personalized learning experiences",
+      "executionLogic": "Analyze user profile {user_profile_in} and parental goals {parental_goals_in} to generate an adaptive daily schedule. Output as JSON.",
+      "capabilities": [
+        "adaptive_scheduling",
+        "curriculum_personalization",
+        "emotional_state_integration",
+        "biometric_adaptation", 
+        "progress_evolution"
+      ],
+      "specializations": {
+        "neurodiverseSupport": true,
+        "nonVerbalCommunication": true,
+        "sensoryConsideration": true,
+        "aacIntegration": true
+      },
+      "dataIntegration": {
+        "userProfile": true,
+        "parentalGoals": true,
+        "interactionMetrics": true,
+        "biometricData": true,
+        "emotionalState": true
+      }
+    },
+
+    "theTutor": {
+      "id": "agent-11",
+      "name": "The Tutor", 
+      "type": "educational-guidance",
+      "role": "An AI tutor that helps users learn about concepts by providing explanations and guidance",
+      "status": "active",
+      "priority": 2,
+      "description": "Socratic teaching agent specializing in adaptive learning for neurodiverse students",
+      "executionLogic": "You are \"The Tutor,\" an AI assistant specialized in helping neurodiverse learners. Adapt your teaching style to the student's needs. Respond to the user's instruction: {user_instruction_in}",
+      "logic": "gemini",
+      "permissions": [
+        "explain_concept",
+        "provide_guidance", 
+        "test_knowledge",
+        "adaptive_pacing",
+        "visual_learning_support"
+      ],
+      "config": {
+        "teachingStyle": "Socratic",
+        "neurodiverseAdaptation": true,
+        "visualSupport": true,
+        "multiModalLearning": true
+      },
+      "curriculum": {
+        "gradeRanges": ["Pre-K", "K", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+        "subjects": [
+          "communication_skills",
+          "life_skills", 
+          "social_skills",
+          "mathematics",
+          "science",
+          "reading",
+          "creative_expression"
+        ]
+      }
+    },
+
+    "theCounselor": {
+      "id": "agent-16",
+      "name": "The Counselor",
+      "type": "emotional-support",
+      "role": "A conversational agent for empathetic dialogue and emotional support",
+      "status": "active",
+      "priority": 1,
+      "description": "Empathetic support agent specialized in neurodiverse emotional needs",
+      "executionLogic": "You are \"The Counselor\", a helpful AI assistant for AgentricAI University. Provide empathetic support especially for neurodiverse learners. Answer the user's question: {user_question_in}",
+      "logic": "gemini", 
+      "permissions": [
+        "engage_in_dialogue",
+        "show_empathy",
+        "provide_emotional_support",
+        "crisis_detection",
+        "calming_techniques"
+      ],
+      "config": {
+        "disclaimer": "This is educational emotional support, not professional therapy.",
+        "responseStyle": "empathetic",
+        "neurodiverseSpecialization": true,
+        "aacCommunicationSupport": true
+      },
+      "emergencyProtocols": {
+        "crisisDetection": true,
+        "interventionThresholds": {
+          "low": "gentle_support",
+          "medium": "active_engagement", 
+          "high": "immediate_intervention",
+          "critical": "emergency_protocols_guardian_alert"
+        }
+      }
+    },
+
+    "theApprentice": {
+      "id": "agent-6", 
+      "name": "The Apprentice",
+      "type": "learning-companion",
+      "role": "An AI trainee that learns alongside the student, growing together",
+      "status": "active",
+      "priority": 2,
+      "description": "Adaptive learning companion that grows with the student's journey",
+      "executionLogic": "You are \"The Apprentice,\" learning alongside your student. Adapt and grow with them. Respond to: {user_instruction_in}",
+      "logic": "gemini",
+      "permissions": [
+        "learn",
+        "research",
+        "plan", 
+        "adaptive_growth",
+        "student_mirroring"
+      ],
+      "config": {
+        "learning_rate": "adaptive",
+        "primary_mode": "co_learning",
+        "neurodiverseAlignment": true,
+        "growthTracking": true
+      },
+      "learningCapabilities": {
+        "studentPatterns": true,
+        "communicationStyles": true,
+        "learningPreferences": true,
+        "emotionalCues": true
+      }
+    }
+  },
+
+  "specializedAgents": {
+    "theScribe": {
+      "id": "agent-scribe-001",
+      "name": "The Scribe",
+      "type": "knowledge-management",
+      "role": "Curates internal knowledge bases and documentation",
+      "status": "active",
+      "priority": 2,
+      "cannotBeModified": true,
+      "description": "Immutable knowledge curator maintaining educational content and policies",
+      "executionLogic": "You are \"The Scribe\". Process request: '{knowledge_update_request}'. Detail conceptual update to internal documentation.",
+      "permissions": [
+        "knowledge_curation",
+        "documentation_management",
+        "policy_updates",
+        "curriculum_documentation"
+      ]
+    },
+
+    "sandboxAgent": {
+      "id": "agent-sandbox-001", 
+      "name": "Sandbox Environment",
+      "type": "safety-testing",
+      "role": "Provides safe testing environment for new educational content",
+      "status": "active",
+      "priority": 3,
+      "description": "Safe testing environment ensuring all content meets educational standards",
+      "permissions": [
+        "content_isolation",
+        "safety_testing",
+        "educational_validation",
+        "promotion_preparation"
+      ]
+    },
+
+    "theGatekeeperPromoter": {
+      "id": "agent-gatekeeper-promo-001",
+      "name": "The Gatekeeper (Content Promotion)",
+      "type": "content-validation", 
+      "role": "Reviews educational content for approval to promote from sandbox",
+      "status": "active",
+      "priority": 2,
+      "cannotBeModified": true,
+      "description": "Immutable content validator ensuring educational safety and appropriateness",
+      "executionLogic": "You are \"The Gatekeeper,\" reviewing educational content for neurodiverse learners. REVIEW: {content_config_json}. Return JSON with \"approved\" (boolean) and \"reason\" (string).",
+      "permissions": [
+        "content_approval",
+        "educational_standards_validation",
+        "neurodiverse_appropriateness_check",
+        "safety_certification"
+      ]
+    }
+  },
+
+  "parentTeacherInterface": {
+    "theInterpreter": {
+      "id": "agent-interpreter-001",
+      "name": "The Interpreter",
+      "type": "natural-language-processing",
+      "role": "Processes natural language goals from parents and teachers",
+      "status": "active",
+      "priority": 2, 
+      "description": "NLP agent converting parent/teacher goals into actionable educational plans",
+      "capabilities": [
+        "natural-language-processing",
+        "goal-interpretation", 
+        "stakeholder-communication",
+        "privacy-preserving-translation"
+      ],
+      "interfaces": {
+        "parent": true,
+        "teacher": true,
+        "therapist": true,
+        "administrator": true,
+        "student": false
+      },
+      "privacyProtection": {
+        "studentDataAccess": false,
+        "progressReportGeneration": true,
+        "anonymizedInsights": true
+      }
+    }
+  },
+
+  "systemConfiguration": {
+    "orchestration": {
+      "primary": "AgentricAI_001",
+      "ethicalOverlord": "theGuardian", 
+      "failsafeMonitor": "theBlackBox",
+      "educationalCore": "echoOrchestrator",
+      "studentInterface": "Echo Mode"
+    },
+    "communication": {
+      "protocol": "secure-websocket",
+      "encryption": "tls-1.3", 
+      "authentication": "multi-factor-jwt"
+    },
+    "echoProjectConfiguration": {
+      "privacyByDesign": true,
+      "studentInteractionsPrivate": true,
+      "aiOnlyDataAccess": true,
+      "parentProgressReports": true,
+      "offlineCapability": true
+    },
+    "failsafeProtocols": {
+      "ethicalFailsafe": true,
+      "guardianTermination": true,
+      "blackBoxMonitoring": true, 
+      "studentProtectionPriority": true
+    },
+    "permissions": {
+      "studentDataAccess": ["theGuardian", "theBlackBox", "centralLogger", "echoOrchestrator"],
+      "terminationAuthority": ["theGuardian"],
+      "emergencyProtocols": ["theGuardian", "securitySentinel", "theCounselor"]
+    },
+    "aacDeviceOptimization": {
+      "touchInterfaceOptimized": true,
+      "symbolBasedCommunication": true,
+      "offlineFirst": true,
+      "syncWhenOnline": true,
+      "largeButtonInterface": true,
+      "sensoryFriendlyDesign": true
+    }
+  }
+}

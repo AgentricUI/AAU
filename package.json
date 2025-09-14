@@ -18,7 +18,15 @@
     "agents:bootstrap": "node scripts/bootstrap-agents.js",
     "sandbox:test": "node scripts/sandbox-test.js",
     "db:migrate": "node scripts/migrate-database.js",
-    "seed:curriculum": "node scripts/seed-curriculum.js"
+    "seed:curriculum": "node scripts/seed-curriculum.js",
+    "build:win": "pkg . --targets node18-win-x64 --output dist/AgentricAI-University-Windows.exe",
+    "build:linux": "pkg . --targets node18-linux-x64 --output dist/AgentricAI-University-Linux",
+    "build:mac": "pkg . --targets node18-macos-x64 --output dist/AgentricAI-University-MacOS",
+    "build:electron": "electron-builder",
+    "build:android": "npm run build:mobile && npx cap sync android && npx cap build android",
+    "build:mobile": "webpack --config webpack.mobile.config.js",
+    "build:aac": "npm run build:win && npm run build:android",
+    "pack:all": "npm run build:win && npm run build:linux && npm run build:mac && npm run build:android"
   },
   "keywords": [
     "ai",
@@ -78,7 +86,21 @@
     "prettier": "^3.0.0",
     "@types/node": "^20.4.2",
     "typescript": "^5.1.6",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4",
+    "pkg": "^5.8.1",
+    "nexe": "^4.0.0-rc.5",
+    "@capacitor/cli": "^5.4.1",
+    "@capacitor/core": "^5.4.1",
+    "@capacitor/android": "^5.4.1",
+    "html-webpack-plugin": "^5.5.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "postcss-loader": "^7.3.3",
+    "sass-loader": "^13.3.2"
   },
   "engines": {
     "node": ">=18.0.0",
@@ -91,5 +113,46 @@
   "bugs": {
     "url": "https://github.com/AgentricUI/AgentricAI_University_Ecosystem/issues"
   },
-  "homepage": "https://github.com/AgentricUI/AgentricAI_University_Ecosystem#readme"
+  "homepage": "https://github.com/AgentricUI/AgentricAI_University_Ecosystem#readme",
+  "bin": {
+    "agentricai-university": "src/main.js"
+  },
+  "pkg": {
+    "scripts": [
+      "src/**/*.js",
+      "config/**/*.js"
+    ],
+    "assets": [
+      "src/agents/registry.json",
+      "config/**/*",
+      "data/**/*",
+      "external/**/*"
+    ],
+    "outputPath": "dist"
+  },
+  "build": {
+    "appId": "com.agentricai.university",
+    "productName": "AgentricAI University",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "src/**/*",
+      "config/**/*",
+      "data/**/*",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icons/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icons/icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icons/icon.png"
+    }
+  }
 }

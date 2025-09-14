@@ -6,60 +6,99 @@
     "maintainer": "Brandon Myers <brandon@agentricai.com>",
     "license": "MIT"
   },
-  "immutableAgents": {
-    "guardian": {
-      "id": "agent-guardian-001",
-      "name": "The Guardian",
-      "type": "ethical-oversight",
+  "coreOperationalAgents": {
+    "securitySentinel": {
+      "id": "agent-4",
+      "name": "Security_Sentinel_001",
+      "type": "security-monitoring",
+      "role": "Intrusion Monitor & System Reporter",
       "status": "active",
       "priority": 0,
       "cannotBeModified": true,
       "alwaysActive": true,
-      "description": "Immutable ethical oversight agent that protects student welfare",
-      "capabilities": [
-        "ethical-review",
-        "content-filtering",
-        "crisis-detection",
-        "intervention-protocols",
-        "audit-trail"
+      "description": "Immutable security agent that monitors system integrity and student safety",
+      "permissions": [
+        "monitor_activity",
+        "alert_threat",
+        "report_incident",
+        "quarantine_threat",
+        "emergency_protocols"
       ],
-      "failsafes": {
-        "selfDestruct": false,
-        "canBeDisabled": false,
-        "requiresConsent": false
-      },
-      "permissions": {
-        "canModifyOtherAgents": true,
-        "canAccessAllData": true,
-        "canOverrideDecisions": true,
-        "canInitiateEmergencyProtocols": true
+      "config": {
+        "logLevel": "info",
+        "scanFrequency": "continuous",
+        "quarantineEnabled": true,
+        "studentProtectionMode": true
       }
     },
-    "blackBox": {
-      "id": "agent-blackbox-001",
-      "name": "The Black Box",
-      "type": "audit-logging",
+    "gatekeeper": {
+      "id": "agent-2",
+      "name": "Gatekeeper_001",
+      "type": "access-control",
+      "role": "Access Control & Validation",
       "status": "active",
       "priority": 0,
       "cannotBeModified": true,
       "alwaysActive": true,
-      "description": "Immutable logging agent that maintains complete audit trail",
-      "capabilities": [
-        "comprehensive-logging",
-        "interaction-recording",
-        "decision-tracking",
-        "performance-metrics",
-        "compliance-monitoring"
+      "description": "Immutable access control agent ensuring proper authorization",
+      "permissions": [
+        "validate",
+        "authorize",
+        "log_access_attempt",
+        "parent_teacher_auth",
+        "student_protection"
       ],
-      "failsafes": {
-        "selfDestruct": false,
-        "canBeDisabled": false,
-        "requiresConsent": false
-      },
-      "dataRetention": {
-        "logLevel": "all",
-        "retentionPeriod": "unlimited",
-        "encryptionLevel": "aes-256"
+      "config": {
+        "authMethod": "multi-factor",
+        "accessLevels": ["parent", "teacher", "admin", "student", "agent"]
+      }
+    },
+    "centralLogger": {
+      "id": "agent-3",
+      "name": "Logger_001",
+      "type": "audit-logging",
+      "role": "Central Logging Coordinator",
+      "status": "active",
+      "priority": 0,
+      "cannotBeModified": true,
+      "alwaysActive": true,
+      "description": "Immutable logging agent maintaining complete interaction audit trail",
+      "permissions": [
+        "capture_log",
+        "route_log",
+        "archive_log",
+        "educational_analytics",
+        "compliance_reporting"
+      ],
+      "config": {
+        "acceptedLevels": ["debug", "info", "warning", "error", "critical"],
+        "archiveLogs": true,
+        "educationalCompliance": true,
+        "gdprCompliant": true
+      }
+    },
+    "coreCoordinator": {
+      "id": "AgentricAI_001",
+      "name": "AgentricAI Core",
+      "type": "core-coordinator",
+      "role": "Core Coordinator & Dispatch Manager",
+      "status": "active",
+      "priority": 0,
+      "cannotBeModified": true,
+      "alwaysActive": true,
+      "description": "Central coordination hub for all agent interactions and system dispatch",
+      "permissions": [
+        "route",
+        "monitor",
+        "broadcast",
+        "delegate",
+        "orchestrate",
+        "emergency_coordinator"
+      ],
+      "config": {
+        "fallbackAgent": "Security_Sentinel_001",
+        "dispatchMode": "priority",
+        "educationalMode": true
       }
     }
   },
