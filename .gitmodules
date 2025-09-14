@@ -1,0 +1,12 @@
+[submodule "external/AgentricAI_Studios"]
+	path = external/AgentricAI_Studios
+	url = https://github.com/BAMmyers/AgentricAI_Studios.git
+[submodule "external/AgentricAI_Core"]
+	path = external/AgentricAI_Core
+	url = https://github.com/BAMmyers/AgentricAI_Core.git
+[submodule "external/AgentricAI_AgentEcoSys"]
+	path = external/AgentricAI_AgentEcoSys
+	url = https://github.com/AgentricUI/AgentricAI_AgentEcoSys.git
+[submodule "external/AgentricAI_University"]
+	path = external/AgentricAI_University
+	url = https://github.com/AgentricUI/AgentricAI_University.git

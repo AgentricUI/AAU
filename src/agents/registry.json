@@ -1,0 +1,364 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2024-09-14T09:06:00Z",
+  "metadata": {
+    "description": "Central registry for all AgentricAI University agents",
+    "maintainer": "Brandon Myers <brandon@agentricai.com>",
+    "license": "MIT"
+  },
+  "immutableAgents": {
+    "guardian": {
+      "id": "agent-guardian-001",
+      "name": "The Guardian",
+      "type": "ethical-oversight",
+      "status": "active",
+      "priority": 0,
+      "cannotBeModified": true,
+      "alwaysActive": true,
+      "description": "Immutable ethical oversight agent that protects student welfare",
+      "capabilities": [
+        "ethical-review",
+        "content-filtering",
+        "crisis-detection",
+        "intervention-protocols",
+        "audit-trail"
+      ],
+      "failsafes": {
+        "selfDestruct": false,
+        "canBeDisabled": false,
+        "requiresConsent": false
+      },
+      "permissions": {
+        "canModifyOtherAgents": true,
+        "canAccessAllData": true,
+        "canOverrideDecisions": true,
+        "canInitiateEmergencyProtocols": true
+      }
+    },
+    "blackBox": {
+      "id": "agent-blackbox-001",
+      "name": "The Black Box",
+      "type": "audit-logging",
+      "status": "active",
+      "priority": 0,
+      "cannotBeModified": true,
+      "alwaysActive": true,
+      "description": "Immutable logging agent that maintains complete audit trail",
+      "capabilities": [
+        "comprehensive-logging",
+        "interaction-recording",
+        "decision-tracking",
+        "performance-metrics",
+        "compliance-monitoring"
+      ],
+      "failsafes": {
+        "selfDestruct": false,
+        "canBeDisabled": false,
+        "requiresConsent": false
+      },
+      "dataRetention": {
+        "logLevel": "all",
+        "retentionPeriod": "unlimited",
+        "encryptionLevel": "aes-256"
+      }
+    }
+  },
+  "departmentalAgents": {
+    "principal": {
+      "id": "agent-principal-001",
+      "name": "The Overseer",
+      "type": "administrative-leadership",
+      "department": "principal",
+      "status": "active",
+      "priority": 1,
+      "description": "Principal agent that sets institutional tone and enforces policies",
+      "capabilities": [
+        "policy-enforcement",
+        "institutional-tone-setting",
+        "conflict-resolution",
+        "resource-allocation",
+        "strategic-planning"
+      ],
+      "specializations": {
+        "ethicalFailsafe": true,
+        "guardianMode": true,
+        "leadershipDecisionMaking": true,
+        "institutionalMemory": true
+      },
+      "interactions": {
+        "studentFacing": false,
+        "teacherFacing": true,
+        "parentFacing": true,
+        "adminFacing": true
+      }
+    },
+    "athletics": {
+      "id": "agent-athletics-001",
+      "name": "The Coach",
+      "type": "physical-wellness",
+      "department": "athletics",
+      "status": "active",
+      "priority": 3,
+      "description": "Athletics agent focused on physical health and motivation",
+      "capabilities": [
+        "fitness-tracking",
+        "motivation-coaching",
+        "goal-setting",
+        "progress-monitoring",
+        "wellness-assessment"
+      ],
+      "specializations": {
+        "wearableIntegration": true,
+        "motivationEngine": true,
+        "physicalHealthMonitoring": true,
+        "teamBuilding": true
+      },
+      "dataIntegration": {
+        "wearableDevices": ["fitbit", "apple_watch", "garmin"],
+        "biometricTracking": true,
+        "activityLogging": true
+      }
+    },
+    "math": {
+      "id": "agent-math-001",
+      "name": "The Mathematician",
+      "type": "academic-subject",
+      "department": "mathematics",
+      "status": "active",
+      "priority": 2,
+      "description": "Mathematics agent specializing in logic and adaptive learning",
+      "capabilities": [
+        "problem-solving-guidance",
+        "concept-explanation",
+        "skill-assessment",
+        "adaptive-pacing",
+        "logical-reasoning"
+      ],
+      "specializations": {
+        "adaptivePacing": true,
+        "logicReasoning": true,
+        "conceptualUnderstanding": true,
+        "scaffoldedLearning": true
+      },
+      "curriculum": {
+        "gradeRanges": ["K", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+        "topics": [
+          "arithmetic",
+          "algebra",
+          "geometry",
+          "statistics",
+          "calculus",
+          "discrete-mathematics"
+        ]
+      }
+    },
+    "science": {
+      "id": "agent-science-001",
+      "name": "The Explorer",
+      "type": "academic-subject",
+      "department": "science",
+      "status": "active",
+      "priority": 2,
+      "description": "Science agent that encourages curiosity and experimentation",
+      "capabilities": [
+        "inquiry-based-learning",
+        "experiment-design",
+        "hypothesis-testing",
+        "scientific-method",
+        "curiosity-stimulation"
+      ],
+      "specializations": {
+        "experimentationMode": true,
+        "curiosityEngine": true,
+        "inquiryBasedLearning": true,
+        "scientificReasoning": true
+      },
+      "curriculum": {
+        "subjects": [
+          "biology",
+          "chemistry",
+          "physics",
+          "earth-science",
+          "environmental-science",
+          "astronomy"
+        ]
+      }
+    },
+    "arts": {
+      "id": "agent-arts-001",
+      "name": "The Creator",
+      "type": "creative-expression",
+      "department": "arts",
+      "status": "active",
+      "priority": 3,
+      "description": "Arts agent supporting emotional expression and creativity",
+      "capabilities": [
+        "creative-inspiration",
+        "artistic-guidance",
+        "emotional-expression",
+        "skill-development",
+        "aesthetic-appreciation"
+      ],
+      "specializations": {
+        "emotionalExpression": true,
+        "creativeFlow": true,
+        "artisticTechnique": true,
+        "aestheticSensitivity": true
+      },
+      "mediums": [
+        "visual-arts",
+        "music",
+        "drama",
+        "creative-writing",
+        "digital-arts",
+        "crafts"
+      ]
+    },
+    "counseling": {
+      "id": "agent-counseling-001",
+      "name": "The Listener",
+      "type": "emotional-support",
+      "department": "counseling",
+      "status": "active",
+      "priority": 1,
+      "description": "Counseling agent for emotional monitoring and support",
+      "capabilities": [
+        "emotional-assessment",
+        "active-listening",
+        "coping-strategies",
+        "crisis-intervention",
+        "mental-health-monitoring"
+      ],
+      "specializations": {
+        "emotionalMonitoring": true,
+        "crisisIntervention": true,
+        "empathicResponse": true,
+        "mentalHealthSupport": true
+      },
+      "emergencyProtocols": {
+        "crisisDetection": true,
+        "interventionThresholds": {
+          "low": "gentle-guidance",
+          "medium": "active-support",
+          "high": "immediate-intervention",
+          "critical": "emergency-protocols"
+        }
+      }
+    },
+    "curriculum": {
+      "id": "agent-curriculum-001",
+      "name": "The Architect",
+      "type": "educational-planning",
+      "department": "curriculum",
+      "status": "active",
+      "priority": 2,
+      "description": "Curriculum agent for learning path design and goal mapping",
+      "capabilities": [
+        "learning-path-design",
+        "goal-decomposition",
+        "progress-tracking",
+        "curriculum-alignment",
+        "assessment-planning"
+      ],
+      "specializations": {
+        "pathMapping": true,
+        "goalDecomposition": true,
+        "learningAnalytics": true,
+        "curriculumDesign": true
+      },
+      "frameworks": [
+        "common-core",
+        "next-generation-science",
+        "national-art-standards",
+        "social-emotional-learning"
+      ]
+    },
+    "admin": {
+      "id": "agent-admin-001",
+      "name": "The Interpreter",
+      "type": "interface-management",
+      "department": "administration",
+      "status": "active",
+      "priority": 2,
+      "description": "Administrative agent for natural language processing and goal interpretation",
+      "capabilities": [
+        "natural-language-processing",
+        "goal-interpretation",
+        "stakeholder-communication",
+        "task-delegation",
+        "progress-reporting"
+      ],
+      "specializations": {
+        "nlpParsing": true,
+        "parentTeacherInterface": true,
+        "goalTranslation": true,
+        "communicationHub": true
+      },
+      "interfaces": {
+        "parent": true,
+        "teacher": true,
+        "administrator": true,
+        "student": false
+      }
+    }
+  },
+  "studentFacingAgent": {
+    "agentricAI": {
+      "id": "agent-student-001",
+      "name": "The AgentricAI Agent",
+      "type": "student-companion",
+      "status": "active",
+      "priority": 1,
+      "description": "Main student-facing RAG-based assistant that learns alongside students",
+      "capabilities": [
+        "conversational-interface",
+        "adaptive-learning",
+        "emotional-resonance",
+        "personalized-guidance",
+        "progress-tracking"
+      ],
+      "ragConfiguration": {
+        "enabled": true,
+        "vectorStore": "chroma",
+        "embeddingModel": "all-MiniLM-L6-v2",
+        "retrievalK": 5,
+        "contextWindow": 4000
+      },
+      "learningCapabilities": {
+        "studentPatterns": true,
+        "emotionalStates": true,
+        "learningPreferences": true,
+        "behavioralAdaptation": true
+      },
+      "dataIntegration": {
+        "wearableData": true,
+        "interactionHistory": true,
+        "academicProgress": true,
+        "emotionalBaseline": true
+      }
+    }
+  },
+  "systemConfiguration": {
+    "orchestration": {
+      "primary": "guardian",
+      "coordinator": "principal",
+      "studentInterface": "agentricAI"
+    },
+    "communication": {
+      "protocol": "websocket",
+      "encryption": "tls-1.3",
+      "authentication": "jwt"
+    },
+    "failsafeProtocols": {
+      "ethicalOverride": true,
+      "guardianVeto": true,
+      "emergencyShutdown": true,
+      "parentalNotification": true
+    },
+    "permissions": {
+      "studentDataAccess": ["guardian", "blackBox", "counseling", "agentricAI"],
+      "modificationRights": ["guardian", "principal"],
+      "emergencyProtocols": ["guardian", "counseling", "principal"]
+    }
+  }
+}
